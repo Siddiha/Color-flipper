@@ -85,6 +85,7 @@
             height: 28px;
             width: 28px;
             border-radius: 50%;
+            background-image: url();
             
             
         }
@@ -93,6 +94,8 @@
             color: #555;
             text-decoration: line-through;
         }
+
+    
     </style>
 </head>
 <body>
@@ -102,8 +105,10 @@
             <h2>To-DO List</h2>
             <div class="row">
                 <input type="text" id="input-box" placeholder="Add your text">
-                <button>Add</button>
+                <button onclick="addTask()">Add</button>
             </div>
+
+
 
             <ul id="list-container">
                 <li class="checked">Task 1</li>
@@ -117,6 +122,34 @@
 
 
     </div>
+
+    <script>
+        const inputBox = document.getElementById("input-box");
+        const listContainer = document.getElementById("list-container");
+
+
+        function addTask(){
+            if (inputBox.value === " "){
+                alert("you must write something !")
+            } else{
+                let li = document.createElement("li");
+                li.innerHTML = inputBox.value;
+                listContainer.appendChild(li);
+                let span = document.createElement("span");
+                span.innerHTML = " \u00d7";
+                li.appendChild(span);
+                
+            }
+            inputBox.value = " ";
+
+
+        }
+
+
+
+    </script>
+
+
 
 
     
